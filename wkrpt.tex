@@ -72,18 +72,22 @@ The criterion of ``schema flexibility'' refers to the ability of a database to a
 For example, an early prototype of a messaging platform may only support conversations in which one user can message only one other user. Obviously, most dedicated messaging platforms will eventually improve its functionality to support features such as multi-user messaging, but as an early iteration, to be able to message only one other user is sufficient. Another scenario in which a schema change may be necessary is when a boolean flag field needs to be added into the schema to contain additional state knowledge will helps to solve certain bugs. In these cases, the database management system that is used should be able to migrate or adapt data from the schema of an earlier iteration with a schema of a later iteration with relative ease in order to be a good fit for a startup.
 
 \subsubsection{MongoDB}
+MongoDB is a NOSQL database that differs from a MySQL database in that it uses dynamic schemas. This means that
 
+-talk about dynamic schema
+-more flimsy, allows for slow fallback
+-talk about why that makes migration easier
+-blah blah see appendix B (for brevity, a lot of details have been ommitted. See appendix B for case study.) -migrating the one-to-many relationships is a lot more annoying as it requires table changes etc. (from 1-1 to group chat)
+-show schema figures
 
 \subsubsection{MySQL}
+-a lot of initial setup time
+-rigid structure needs to be defined
+-talk about tables
+-discuss how it is more complex by nature (not good for fast prototyping)
+-show schema figures
 
 -mention something about history loss? - to migrate without losing history
-
-
-blah blah see appendix B (for brevity, a lot of details have been ommitted. See appendix B for case study.)
-
-% \subsection{Schema Complexity}
-% dsfsdfa
-% -show mongo schema vs mysql schema, more tables required  etc.
 
 \section{Scaling}
 

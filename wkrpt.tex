@@ -115,18 +115,33 @@ ACKNOWLEDGEMENTS
 \newpage
 
 
-% \appendix{APPENDIX INDEX}{APPENDIX NAME}
-% APPENDICES
-% \newpage
 \appendix{A}{The MEAN Stack}
-will discuss monoglot, etc.
 
-[reference for each of the 4 things](or put this in appendix)
+The MEAN stack is a fullstack Javascript framework for web applications. It differs from other web frameworks such as Ruby on Rails, or Python with Django in that it is a monoglot framework and only uses Javascript for both its front-end and its backend logic. Because the MEAN stack is fully Javascript, that means most web developers will be able to learn how to program with the MEAN stack with relative ease, as Javascript is virtually the only front-end programming language that exists for web development, and they will have had at least some experience with it.
 
- In order to build the Ten Thousand Coffees web application, the MEAN stack was chosen. the mean stack is a set of techs blah blah
+MEAN is an acronym that stands for MongoDB, Express.js, Angular.js, and Node.js. This section of the appendix will explain each component of the MEAN stack, and how they interact with each other.
 
-blah blah...describe stack a bit/include some diagrams of mean stack
-what problems were specifically met (similar to introduction, but in more detail (i.e. need fast lookup, team of 6 devs, not a lot of dev manpower, etc.))/ requirements
+MongoDB %(http://docs.mongodb.org/manual/faq/fundamentals/#what-kind-of-database-is-mongodb)
+MongoDB is a document-oriented DBMS. Think of MySQL but with JSON-like objects comprising the data model, rather than RDBMS tables. Significantly, MongoDB supports neither joins nor transactions. However, it features secondary indexes, an expressive query language, atomic writes on a per-document level, and fully-consistent reads.
+-include the link where it is mapped to SQL?
+
+Express.js %(http://expressjs.com/)
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
+It provides a nice interface for Node to route requests to different paths, etc. and has a middleware system blah blah.
+-include some express code snippets
+
+Angular.js %(https://docs.angularjs.org/guide/introduction)
+AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write. And it all happens within the browser, making it an ideal partner with any server technology.
+-include some example of Angular interpolations in html
+
+Node.js %(https://nodejs.org/)
+Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
+-mention some stuff about how it is good with concurrency but not cpu-intensive operations (maybe with reference)
+-add a diagram from (http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js)
+
+With the MEAN architecture, Node with Express is the event-drive server that handles user requests as well as API calls from the client. The user would be interacting with the Angular site that is served statically via the Express server, and their interaction with the site would lead to actions being triggered. These actions will interact with the application's API through HTTP requests. Through the web application's API, updates, retrievals, and posts would be made to the fields in the MongoDB database.
+
+-include diagram here with caption
 
 \newpage
 

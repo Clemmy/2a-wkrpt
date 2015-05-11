@@ -103,13 +103,16 @@ In a startup, the ability for a database to scale is very important. As a startu
 \end{figure}
 
 \subsection{MongoDB}
-%http://docs.mongodb.org/manual/core/sharding-introduction/
-%http://www.mongodb.com/mongodb-scale
 
-In terms of the CAP Theorem, MongoDB has very high partition-tolerance. One of the reasons that it is so popular is because of its ability to horizontally scale very well.
+In terms of the CAP Theorem, MongoDB has very high partition-tolerance. One of the reasons that it is so popular is because of its ability to horizontally scale very well. MongoDB, as a part of its design philosophy, was built for horizontally scaling. That is, unlike most SQL systems that were made years ago when horizontal scaling was not as important, MongoDB was developed in an era where the web is huge and the need to fulfill many concurrent operations at once is very important. MongoDB offers two forms of horizontal scaling: replication and sharding.
 
--mention how it horizontally scales
--mention how it can also vertically scale, like sql systems
+Replication provides redundancy by copying data on different database servers. This provides benefits such as protecting a database from the loss of a single server, and with additional copies of the data, one database can also be dedicated to disaster recovery, reporting, or backup. Additionally, replication can be used to increase read capacity, as it allows clients to write and read to different servers. Copies can also be strategically placed in different data centers to increase locality and availability of data for distributed applications \cite{replication}.
+
+MongoDB also allows horizontally scaling via sharding. Sharding is a method for storing data across multiple machines. MongoDB uses sharding to support deployments with very large data sets and high throughput operations. Database systems with large data sets and high throughput applications can challenge the capacity of a single server, since high query rates can exhaust the CPU capacity of the server, and larger data sets easily exceed the storage capacity of a single machine. Finally, working set sizes larger than the system’s RAM stress the I/O capacity of disk drives. Sharding, by contrast, divides the data set and distributes the data over multiple servers, or shards. Each shard is an independent database, and collectively, the shards make up a single logical database \cite{sharding}.
+
+As for vertical scaling, more CPU and high-capacity storage resources can simply be added to a database system in order to make it perform better. However, it has a practical limit and the becomes exponentially expensive, so horizontal scaling is much more efficient than vertical scaling for MongoDB.
+
+With MongoDB's scaling capabilities, tens of thousands of organizations have used MongoDB in their high performance systems. In fact, over 30 of the Fortune 100 have grown from single server deployments to clusters with over 1,000 nodes, delivering millions of operations per second on over 100 billion documents and petabytes of data \cite{mongodb_scale}.
 
 \subsection{MySQL}
 -mention how it can vertically scales

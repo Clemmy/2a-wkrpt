@@ -247,27 +247,22 @@ The MEAN stack is a fullstack Javascript framework for web applications. It diff
 
 MEAN is an acronym that stands for MongoDB, Express.js, Angular.js, and Node.js. This section of the appendix will explain each component of the MEAN stack, and how they interact with each other.
 
-MongoDB %(http://docs.mongodb.org/manual/faq/fundamentals/#what-kind-of-database-is-mongodb)
-MongoDB is a document-oriented DBMS. Think of MySQL but with JSON-like objects comprising the data model, rather than RDBMS tables. Significantly, MongoDB supports neither joins nor transactions. However, it features secondary indexes, an expressive query language, atomic writes on a per-document level, and fully-consistent reads.
--include the link where it is mapped to SQL?
+MongoDB is a document-oriented database management system. Rather than the relational tables, it contains JSON-like documents. One major difference from RDBMS is that it doesn't support joins nor transactions, but instead it nests documents.
 
-Express.js %(http://expressjs.com/)
-Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.
-It provides a nice interface for Node to route requests to different paths, etc. and has a middleware system blah blah.
--include some express code snippets
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web applications. It provides a nice interface for Node ro route client requests, and it also features a middleware system that requests can bubble through.
 
-Angular.js %(https://docs.angularjs.org/guide/introduction)
-AngularJS is a structural framework for dynamic web apps. It lets you use HTML as your template language and lets you extend HTML's syntax to express your application's components clearly and succinctly. Angular's data binding and dependency injection eliminate much of the code you would otherwise have to write. And it all happens within the browser, making it an ideal partner with any server technology.
--include some example of Angular interpolations in html
+Angular.js is a structural MV* framework for dynamic web applications that have the need for two-way data binding. It extends HTML's syntax to express application components clearly and concisely. It also uses dependency injection to make code cleaner and more modular.
 
-Node.js %(https://nodejs.org/)
-Node.js is a platform built on Chrome's JavaScript runtime for easily building fast, scalable network applications. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient, perfect for data-intensive real-time applications that run across distributed devices.
--mention some stuff about how it is good with concurrency but not cpu-intensive operations (maybe with reference)
--add a diagram from (http://www.toptal.com/nodejs/why-the-hell-would-i-use-node-js)
+Node.js is a platform built on Chrome's Javascript runtime that uses an event-drive, non-blocking I/O model. Its use cases are primarily for data-intensive real-time applications that require concurrency. On the contrary, it is not a good choice for projects that require CPU-intensive operations.
 
 With the MEAN architecture, Node with Express is the event-drive server that handles user requests as well as API calls from the client. The user would be interacting with the Angular site that is served statically via the Express server, and their interaction with the site would lead to actions being triggered. These actions will interact with the application's API through HTTP requests. Through the web application's API, updates, retrievals, and posts would be made to the fields in the MongoDB database.
 
--include diagram here with caption
+\begin{figure}
+\begin{center}
+        \includegraphics[scale=0.5]{resources/mean_diagram.png}
+\end{center}
+\caption{\label{figcaption} A high-level visualization of how the different MEAN components interact}
+\end{figure}
 
 \newpage
 

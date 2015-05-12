@@ -106,9 +106,6 @@ MySQL is a SQL-compliant database which forces the user to define a structure in
 \caption{\label{figcaption} A MySQL schema that supports group messaging \cite{cap_picture}}
 \end{figure}
 
-
--mention something about history loss? - to migrate without losing history
-
 \section{Scaling}
 
 In a startup, the ability for a database to scale is very important. As a startup often starts off with a limited budget and a small initial consumer base, their product does not need to support high traffic. However, as the company grows and their amount of users rises, then the ability to support the increased traffic is mandatory in order for the company to survive. Different technologies have different techniques to handle specific use cases and so, the characteristics of different databases will vary when they scale. There is a common theorem known as the ``CAP'' theorem where no system can achieve consistency, high-availability, and partition-tolerance at the same time, and this is made especially apparent when scaling the database management system. A consistent system is one where the system can guarantee that the same state will be reported at all nodes in every subsequent operation until the state is explicitly changed. A system that is highly available is one that is resistant to hardware failure and allows operations to continue even if a node has failed. Finally, a partition-tolerant system is one where the system can be split over several datacenters while staying synchronized with one another. \cite{cap_theorem} For a messaging platform, high availability and partition-tolerance is valued more than consistency.

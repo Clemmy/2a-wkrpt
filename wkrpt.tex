@@ -75,20 +75,37 @@ For example, an early prototype of a messaging platform may only support convers
 \subsection{MongoDB}
 MongoDB is a NOSQL database that differs from a MySQL database in that it uses dynamic schemas. Consequently, the documents stored in a collection do not need to have a uniform data model. This schema flexibility allows for migration methods that are different from the usual script method, in which a large script is executed against the database to modify the data models all the relevant data stored in the database at once. With MongoDB's dynamic schema, an alternative approach to schema migration, known as ``lazy updating'' or ``schema versioning.'' Lazy updating refers to the method of only updating documents as required, having code that supports both the older schema as well as the newer one. This allows the database to slowly migrate without any downtime or a large change all at once, until the older schema version is eventually deprecated and support is dropped. At Ten Thousand Coffees, I led the migration of the older messaging schema into the new architecture in order to add support for group messaging. For the sake of brevity, the details of the migration are ommitted from this section. See appendix B for the case study.
 
--talk about dynamic schema
--more flimsy, allows for slow fallback
--talk about why that makes migration easier
--blah blah see appendix B (for brevity, a lot of details have been ommitted. See appendix B for case study.) -migrating the one-to-many relationships is a lot more annoying as it requires table changes etc. (from 1-1 to group chat)
--show schema figures
+\begin{figure}
+\begin{center}
+        \includegraphics[scale=0.8]{resources/user_schema.png}
+\end{center}
+\caption{\label{figcaption} A MongoDB user schema for supports group messaging}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+        \includegraphics[scale=0.8]{resources/message_schema.png}
+\end{center}
+\caption{\label{figcaption} A MongoDB message schema for supports group messaging}
+\end{figure}
+
+\begin{figure}
+\begin{center}
+        \includegraphics[scale=0.8]{resources/thread_schema.png}
+\end{center}
+\caption{\label{figcaption} A MongoDB thread schema for supports group messaging}
+\end{figure}
 
 \subsection{MySQL}
 MySQL is a SQL-compliant database which forces the user to define a structure in terms of tables and columns before data can be stored in it. As such, it demands a long initial setup time. This rigidness comes with benefits such as being more reliable and being more efficient at complex queries \cite{sql_vs_nosql}. However, while these benefits are great for a more corporate enterprise solution such as banking software, where reliability is more important, they are not as suited for a startup that is focused on a messaging platform. By SQL's nature, it is more complex to set up then MongoDB, and migrations would also require significantly more effort, as the the mathematical structure containing tables and rows would require a more revamping than simplying adding/removing a field in the case of MongoDB. This is not good for a company that needs fast prototyping. The advantages of rapid prototyping far outweigh the advantages of transaction safety in a startup, and moreso in a messaging platform. In the worst case, if MongoDB performance is bad on certain queries, the relevant components can be swapped for something that is more performant such as Redis. Therefore, MongoDB is more suitable than MySQL is terms of schema flexibility.
 
--a lot of initial setup time
--rigid structure needs to be defined
--talk about tables
--discuss how it is more complex by nature (not good for fast prototyping)
--show schema figures
+\begin{figure}
+\begin{center}
+        \includegraphics[scale=0.8]{resources/mysql_schema.png}
+\end{center}
+\caption{\label{figcaption} A MySQL schema that supports group messaging \cite{cap_picture}}
+\end{figure}
+
 
 -mention something about history loss? - to migrate without losing history
 

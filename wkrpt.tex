@@ -123,13 +123,100 @@ The analysis of the scaling capabilities of both MongoDB and MySQL shows that al
 
 
 \section{Performance}
--indexing? usual stuff
-- what is the most important in messaging applications?
-- reading and writing happen quite frequently
 
-The Main Sections of the report are the heart of the report, containing detailed descriptions of the technical decision being reported. In an analysis report, the Main Sections start by elaborating on the problem identified in the Introduction , expanding on the problem definition and on background material relevant to understanding the problem. They describe the analytical study or the experiment performed, and explicate and justify any assumptions made. They conclude by reporting the results of the study, drawing conclusions, and making recommendations. To be complete, an analysis report should identify any threats to the validity of the analysis' results, and should describe the costs and consequences of following, and of not following, the recommendations. In a synthesis report, the Main Sections start by elaborating on the problem identified in the Introduction, expanding on the problem definition to include rigorous and precise specifications of the design criteria and constraints. The sections describe your solution to the problem, including an explanation of how your solution satisfies the design criteria and constraints. They also report alternative designs and solutions that were considered, and they explain why the proposed solution is most favourable in the given context. To be complete, a synthesis report should identify any limitations of the solution proposed.
+When comparing the database's performances against one another, there are a myriad of system setups that can be used in order to conduct the test. However, this falls under the category of scalability that was mentioned earlier in this report. Instead, this section will evaluate the performance of MongoDB and MySQL based on my local machine with the same default setup. These tests do not aim to measure the pure performance metrics of the two databases, but attempt to eliminate as much bias as possible by performance common queries that would be used in a group messaging application, and recording the metrics for the relevant querying needs. 
 
+These querying needs include fetching threads for a specific user, and fetching messages in a specific thread. The tests for both MongoDB and MySQL are conducted using a 2.5 GHz Unix machine with 16 GB of RAM. The test data that is used contains 20,000 users, with an average of 20 threads of roughly 50 messages each. 
 
+\begin{table}[h!]
+\centering
+\caption{Query Times To Fetch Threads For a Specific User in MongoDB}
+\vspace{2mm}
+\begin{tabular}{|c|c|} 
+ \hline
+ Trial \# & Query Time \\ [0.5ex] 
+ \hline\hline
+ 1 & 311 ms \\ 
+ 2 & 298 ms \\
+ 3 & 305 ms \\
+ 4 & 299 ms \\
+ 5 & 318 ms \\
+ 6 & 294 ms \\
+ 7 & 301 ms \\
+ 8 & 307 ms \\
+ 9 & 315 ms \\
+ 10 & 309 ms \\
+ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Query Times To Fetch Messages For a Specific Thread in MongoDB}
+\vspace{2mm}
+\begin{tabular}{|c|c|} 
+ \hline
+ Trial \# & Query Time \\ [0.5ex] 
+ \hline\hline
+ 1 & 250 ms \\ 
+ 2 & 257 ms \\
+ 3 & 242 ms \\
+ 4 & 239 ms \\
+ 5 & 245 ms \\
+ 6 & 242 ms \\
+ 7 & 248 ms \\
+ 8 & 240 ms \\
+ 9 & 238 ms \\
+ 10 & 251 ms \\
+ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Query Times To Fetch Threads For a Specific User in MySQL}
+\vspace{2mm}
+\begin{tabular}{|c|c|} 
+ \hline
+ Trial \# & Query Time \\ [0.5ex] 
+ \hline\hline
+ 1 & 122 ms \\ 
+ 2 & 137 ms \\
+ 3 & 134 ms \\
+ 4 & 130 ms \\
+ 5 & 128 ms \\
+ 6 & 127 ms \\
+ 7 & 133 ms \\
+ 8 & 131 ms \\
+ 9 & 129 ms \\
+ 10 & 135 ms \\
+ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Query Times To Fetch Messages For a Specific Thread in MySQL}
+\vspace{2mm}
+\begin{tabular}{|c|c|} 
+ \hline
+ Trial \# & Query Time \\ [0.5ex] 
+ \hline\hline
+ 1 & 110 ms \\ 
+ 2 & 112 ms \\
+ 3 & 109 ms \\
+ 4 & 116 ms \\
+ 5 & 108 ms \\
+ 6 & 107 ms \\
+ 7 & 113 ms \\
+ 8 & 111 ms \\
+ 9 & 110 ms \\
+ 10 & 106 ms \\
+ \hline
+\end{tabular}
+\end{table}
+
+From the results of the ten-trial experiments that I ran, it can be inferenced that MySQL's query times for most of the fetch operations are slightly quicker than those of MongoDB. However, they are still very comparable, and with other techniques, the differences can be deemed negligible. For example, MongoDB can improve its lookup speed by indexing key fields. In addition, as the data models become more complex, MongoDB has the superior lookup model since it stores data as document models rather than having to look up rows in different tables. Finally, MongoDB has the advantage of horizontal scaling, as covered in a previous section, so its performance on a single machine is not critical. The conclusion in here is that MySQL has slightly faster message and thread fetch times than MongoDB on a single machine.
 
 \section{Conclusions}
 CONCLUSIONS

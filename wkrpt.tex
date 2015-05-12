@@ -244,7 +244,12 @@ MySQL has a slight edge against MongoDB in common queries for group messaging on
 Having a better result than MySQL in two out of the three criteria, MongoDB is the database management system of choice when building a messaging platform for a startup. It allows for fast prototyping, and is great at scalability, and the only expensive is a very slight performance reduction, which can be minimized with many techniques in the later stages of the startup.
 
 \section{Recommendations}
-RECOMMENDATIONS
+
+In the future, when MongoDB is selected as the database management system for a messaging platform startup, the allocation of human resources and other technologies should be set according to the benefits that MongoDB brings. For example, MongoDB uses JSON-like documents as its data model. This means that it would fit best with Javascript technologies such as Node.js. If this recommendation is followed, then it would mean that a majority of the technology stack would be in Javascript. This means that software developers who are experienced in Javascript should be the better hire, and Javascript should be learned by both front-end developers and back-end developers. 
+
+Also, since MongoDB has a very simple document structure, the learning curve for it is quite low. The structure does not quickly become unmanageable like SQL where it is common to see projects with hundreds of tables. With a SQL database, it is a necessity to hire a database administrator in order to make design decisions and monitor the database. However, because of MongoDB's developer-friendliness, every software developer on the development team should be able to utilize the database with relative ease, and a specialized database administrator is not necessary. 
+
+It is also notable that this report is based strictly on the use case of a messaging platform for a startup. For example, Facebook has a messaging service, but its architecture will deviate greatly from the infrastructure that is outligned in this report. This is because Facebook has the technology and manpower to have a customized solution which handles requests on a scale that is much larger than what startups have to deal with. It would use an in-memory database like Redis for instant messages, which would synchronize to a more robust backing database; it is a custom solution that startups would not have to deal with for a long time. Such a large scale is not important for startups. Rather, what is important is fast prototyping and scalability.
 
 \newpage
 

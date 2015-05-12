@@ -39,12 +39,11 @@
 
 
 \tocsection{Executive Summary}
-blah blah
-The Executive Summary is a one-page summary of the report's highlights, including the purpose and scope of the report, the major points in the report, highlights of the conclusions, and highlights of the recommendations. It is self contained, and is meant to be read and understood by someone (e.g., a company executive officer) who is not likely to read the report itself.
+One of the major decisions in Ten Thousand Coffees' planning phase was the selection of a database management system to use in order to support its messaging service. As a startup, it is imperative that the system of choice allows for rapid prototyping, and has the ability to scale. Some factors that affect the speed of prototyping is the flexibility of schema, and the simplicity of the schema. Additionally, there are multiple ways that databases can scale, which include scaling horizontally, which is the method of adding more machines, or scaling vertically, which is the method of increasing CPU and RAM.
 
-- something about startups
-- something about mysql and mongodb (background about traditional relational vs non-relational debate, hard to decide without ocntext, both solve different use cases)
-- something about how message is modelled
+In this report, two popular database management systems, MongoDB, and MySQL, are evaluated against set criteria in order to determine which database is more suited for Ten Thousand Coffee's use case of serving as a datastore for messaging. In terms of schema flexibility, MongoDB was better than MySQL because of its fundamental design philosophies. When scaling, MongoDB is also a better choice because it was designed for horizontal scaling, whereas MySQL was designed when horizontal scaling mattered a lot less. As such, MySQL is more restricted than MongoDB in the context of scaling. Unsurprisingly, MySQL has better query performance than MongoDB based on some conducted experiments where both databases ran on a single machine. Although MySQL wins in this category, it can still be argued that MongoDB would have better performance overall with the right setup and conditions.
+
+Despite MySQL having better query performance than MongoDB in one of the tests conducted, it is not enough to outweigh all the other benefits that MongoDB has to offer. The value of rapid prototyping is worth much higher than a small performance gain, especially at the startup stage. As such, the conclusion is that MongoDB is the best database for use in a messaging service by a startup. Rather, MySQL's use case lies in an established enterprise environment such as a bank, where safe transactions and consistency of data is more important than horizontal scaling and fast prototyping.
 
 \newpage
 

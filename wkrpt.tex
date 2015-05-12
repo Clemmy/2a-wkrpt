@@ -115,14 +115,18 @@ As for vertical scaling, more CPU and high-capacity storage resources can simply
 With MongoDB's scaling capabilities, tens of thousands of organizations have used MongoDB in their high performance systems. In fact, over 30 of the Fortune 100 have grown from single server deployments to clusters with over 1,000 nodes, delivering millions of operations per second on over 100 billion documents and petabytes of data \cite{mongodb_scale}.
 
 \subsection{MySQL}
--mention how it can vertically scales
--mention how although it was not made to horizontally scale, it could, with some tools/work
--mention maybe some ways that mysql can horizontally scale, mention that it's not native
+
+In terms of the CAP Theorem, MySQL falls in the consistent and high availability categories. As mentioned earlier, this means that MySQL's strengths lie in its ability to report the same state to all users accessing the database, and its resilience to downtime after operations are completed. Additionally, it has the option, like all other databases, to vertically scale by increasing memory and CPU. However, because of MySQL's relational database structure that contains tables, it is harder for MySQL to scale horizontally \cite{mysql_scale_issues}. That is, even with sharded data on MySQL, queries with joins will still be quite inefficient because of the latency from when the query is executed, then the server parsing, optimizing, finding an execution plan, and executing it, going to all the different tables across different datastores to retrieve the queried data. Despite this, there are still some horizontal scaling solutions for MySQL which have been improving over the year from the use of clever algorithms, such as ScaleBase and MySQL Cluster.
+
 
 
 -overall mongo wins because it comes with support out of the box
 
 \section{Performance}
+-indexing? usual stuff
+- what is the most important in messaging applications?
+- reading and writing happen quite frequently
+
 The Main Sections of the report are the heart of the report, containing detailed descriptions of the technical decision being reported. In an analysis report, the Main Sections start by elaborating on the problem identified in the Introduction , expanding on the problem definition and on background material relevant to understanding the problem. They describe the analytical study or the experiment performed, and explicate and justify any assumptions made. They conclude by reporting the results of the study, drawing conclusions, and making recommendations. To be complete, an analysis report should identify any threats to the validity of the analysis' results, and should describe the costs and consequences of following, and of not following, the recommendations. In a synthesis report, the Main Sections start by elaborating on the problem identified in the Introduction, expanding on the problem definition to include rigorous and precise specifications of the design criteria and constraints. The sections describe your solution to the problem, including an explanation of how your solution satisfies the design criteria and constraints. They also report alternative designs and solutions that were considered, and they explain why the proposed solution is most favourable in the given context. To be complete, a synthesis report should identify any limitations of the solution proposed.
 
 

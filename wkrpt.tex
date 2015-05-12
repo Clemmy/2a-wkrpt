@@ -290,7 +290,10 @@ With the MEAN architecture, Node with Express is the event-drive server that han
 \newpage
 
 \appendix{B}{Case Study of Schema Migration at Ten Thousand Coffees}
-blah blah
+
+During my co-op term at Ten Thousand Coffees, another co-op student implemented a messaging service into the platform that supported one-to-one conversations. He used fields such as ``receiver'', ``sender'', ``receiver{\_}updated'', and ``sender{\_}updated'' inside the thread schema. However, a schema like is evidently unable to support more than two users per thread. The only way to support a variable amount of users in a thread was to include an array of thread participants in each thread. In my past experience using a relational database, migrating the old data to keep the history of old conversations was going to require significant effort. Although, I later discovered that the task was not too difficult. My co-worker advised that the best practice was to use lazy updating.
+
+For the entire migration, I only had to make a few changes. In the thread schema, I added a ``thread{\_}participants'' array that would contain the all the users in the chat, while leaving the older ``receiver'' and ``sender'' fields intact. I then added a virtual method that simply reports whether a document has an older version of the schema, or the newer version of the schema. Using this method, I changed the code on the client to handle both versions, but once an update is performed, to convert the older version to the newer one. This way, migrating was relatively pain-free.
 
 \newpage
 

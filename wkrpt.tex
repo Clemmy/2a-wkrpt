@@ -233,11 +233,15 @@ These querying needs include fetching threads for a specific user, and fetching 
 From the results of the ten-trial experiments that I ran, it can be inferenced that MySQL's query times for most of the fetch operations are slightly quicker than those of MongoDB. However, they are still very comparable, and with other techniques, the differences can be deemed negligible. For example, MongoDB can improve its lookup speed by indexing key fields. In addition, as the data models become more complex, MongoDB has the superior lookup model since it stores data as document models rather than having to look up rows in different tables. Finally, MongoDB has the advantage of horizontal scaling, as covered in a previous section, so its performance on a single machine is not critical. The conclusion in here is that MySQL has slightly faster message and thread fetch times than MongoDB on a single machine.
 
 \section{Conclusions}
-CONCLUSIONS
-blah blah something results (summarize results and constrast)
-it is clear that mongodb matches the criteria better
-mysql suited for other purposes...such as complexity or something else, but it is not a good fit in an environment that is continuously changing and evolving
-\cite{smpl}
+In this report, MongoDB and MySQL have been evaluated on their schema flexibility, scalability, and performance, in order to assess their suitability for a startup focused on a messaging platform. In schema flexibility and scalability, MongoDB trumped against MySQL, but it lost to MySQL when doing query benchmarking. 
+
+Schema flexibility is an important factor for a social startup because the schemas evolve very quickly in early stages; in the prototyping stage, the schema undergoes constant changes to meet the ever-changing demands. With a qualitative analysis of MongoDB's design philosophies as well as a qualitative analysis of MySQL's design philosophies, it is evident that MongoDB's design decision of a dynamic schema allows it to be far more flexible than the mathematical table structure of MySQL. This allows for faster and easier schema iterations and versions.
+
+In terms of scalability, both MySQL and MongoDB were able to vertically scale. However, MongoDB is able to scale horizontally better than MySQL is able to. Although MySQL has tools that allow it to scale horizontally, that's not what it was originally designed for, and as such, it lags behind MongoDB in horizontal scalibility. In the modern technological era, horizontal scalability is much more important than vertical scalability because it means less development effort put into the initial iteration, but allows an easy way to scale. In addition, it is less expensive than vertical scaling.
+
+MySQL has a slight edge against MongoDB in common queries for group messaging on a single machine. However, this slight performance edge is not enough to offset the benefits of rapid prototyping and ease of development that MongoDB offers. The performance of MongoDB and MySQL are comparable, and there are many ways to improve MongoDB's performance, which was bottlenecked, since the experiments were performed on a single machine. Regardless, MySQL wins in this category.
+
+Having a better result than MySQL in two out of the three criteria, MongoDB is the database management system of choice when building a messaging platform for a startup. It allows for fast prototyping, and is great at scalability, and the only expensive is a very slight performance reduction, which can be minimized with many techniques in the later stages of the startup.
 
 \section{Recommendations}
 RECOMMENDATIONS
